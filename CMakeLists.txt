@@ -2,4 +2,9 @@ cmake_minimum_required(VERSION 2.8)
 
 include( ${CMAKE_CURRENT_LIST_DIR}/rvalues/CMakeLists.txt )
 include( ${CMAKE_CURRENT_LIST_DIR}/chrono/CMakeLists.txt )
+include( ${CMAKE_CURRENT_LIST_DIR}/misc/CMakeLists.txt )
+include( ${CMAKE_CURRENT_LIST_DIR}/decltype_auto/CMakeLists.txt )
+include( ${CMAKE_CURRENT_LIST_DIR}/initializer_list/CMakeLists.txt )
+include( ${CMAKE_CURRENT_LIST_DIR}/tricky_templates/CMakeLists.txt )
+include( ${CMAKE_CURRENT_LIST_DIR}/scopes_lookups_namespaces/CMakeLists.txt )
 
