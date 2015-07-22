@@ -10,14 +10,20 @@ struct CRvalMember
     CRvalMember( )
     {
     }
-    CRvalMember( CRvalMember &&ar_mv )
-      : m_int(ar_mv.m_int)
-      , m_str(ar_mv.m_str)
+
+    CRvalMember( CRvalMember &&ar_mv ) = default;
+
+    CRvalMember( const CRvalMember &ar_copy )
     {
+        ++s_member_copies;
+        m_int = ar_copy.m_int;
+        m_str = ar_copy.m_str;
     }
 
     int m_int = 1;
     std::string m_str = "One";
+
+    static int s_member_copies;
 };
 
 class CRval
@@ -31,6 +37,13 @@ class CRval
     // initialization via move
     CRval( CRval &&ar_mv ) = default;
 
+    // copy constructing
+    CRval( const CRval &ar_mv )
+        : m_member( ar_mv.m_member )
+    {
+        ++s_copy_constructs;
+    }
+
     // counting destructor
     ~CRval()
     {
@@ -39,9 +52,7 @@ class CRval
 
   public:
     static int s_destructs;
-
-  private:
-    CRval( const CRval & );
+    static int s_copy_constructs;
 
   public:
     CRvalMember m_member;

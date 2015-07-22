@@ -3,5 +3,7 @@
 
 int main(int argc, char **argv)
 {
-    return cpp11_examples::CRvalExample::run( std::cout ); 
+    cpp11_examples::CRvalExample::run( std::cout ); 
+    
+    return 0;
 }
