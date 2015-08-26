@@ -20,4 +20,6 @@ void copy_direct_initialization()
     C a(7);
     // copy initialization - explicit constructor will be ignored
     C b = 7;
+
+    a = b;
 }
